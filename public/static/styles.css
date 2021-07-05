@@ -81,11 +81,10 @@ body{
 }
 #paymentTotalText{
   font-family: SFProDisplayBold;
-  font-size: 1.em;
+  font-size: 0.9em;
 }
 #paymentInstructions{
-  font-family: SFProDisplayRegular;
-  font-size: 1.em;
+  font-size: 0.9em;
 }
 .cart-numbers{
   font-family: SFProDisplayRegular;
@@ -120,7 +119,7 @@ form{
   display: inline-block;
 }
 @media (min-width: 992px){
-  /* lg */
+  /* md */
   .welcomeTitle{
     font-size: 1.5em;
   }

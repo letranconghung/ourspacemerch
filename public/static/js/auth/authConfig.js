@@ -7,7 +7,7 @@ const msalConfig = {
     auth: {
         clientId: "c7bb2e45-5a04-45da-84a5-4eedc00b6819",
         authority: "https://login.microsoftonline.com/3b2f12de-4d54-490b-908f-dc26b91244dc",
-        redirectUri: "http://localhost:3000",
+        redirectUri: "https://ourspacemerch.web.app",
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
