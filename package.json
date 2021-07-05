@@ -1,0 +1,17 @@
+{
+  "name": "ourspacemerchdev",
+  "version": "1.0.0",
+  "description": "ourspacemerchdev",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

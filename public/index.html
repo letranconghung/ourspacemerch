@@ -1,89 +1,283 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/8.7.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/8.7.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-functions.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-storage.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-analytics.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/8.7.0/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- Custom Icon -->
+  <link rel="icon" href="static/imgs/iconcrest.png">
+
+  <!-- MSAL JS -->
+  <script src="https://alcdn.msauth.net/browser/2.13.1/js/msal-browser.js"
+  integrity="sha384-7hwr87O1w6buPsX92CwuRaz/wQzachgOEq+iLHv0ESavynv6rbYwKImSl7wUW3wV"
+  crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+    if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/browser/2.13.1/js/msal-browser.js' type='text/javascript' crossorigin='anonymous' %3E%3C/script%3E"));
+  </script>
+
+  <!-- Font Awesome Custom CDN -->
+  <script src="https://kit.fontawesome.com/a305de4902.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/styles.css">
+
+  <title>OurspACe Merch Purchase</title>
+
+  <!-- update the version number as needed -->
+  <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-storage.js"></script>
+  <script src="/__/firebase/8.7.0/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.7.0/firebase-performance.js"></script>
+  <!-- 
+    initialize the SDK after all desired features are loaded, set useEmulator to false
+    to avoid connecting the SDK to running emulators.
+  -->
+  <script src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+
+<body>
+  <!-- Landing page -->
+  <div id="landingPage" class="d-none h-100" data-page="1">
+    <div id="banner" class = "container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 text-center mt-5">
+          <img src="static/imgs/stickerlandscape.png" width="100%">
+        </div>
+        <div class="col-12 text-center">
+          <p id="bannerTitle">OurspACe Opening <br> Merchandise Purchase Form </p>
+        </div>
+        <div class="col-12 text-center mt-lg-3 mt-1">
+          <button type="button" class="btn btn-dark signInBtn" onclick="signIn()">Sign in with Teams</button>
+        </div>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <!-- Cart page -->
+  <div id="cartPage" class="d-none h-100" data-page="2">
+    <div class="container">
+      <!-- Welcome title and sign out button -->
+      <div class="row justify-content-center pt-2">
+        <div class="col-7 col-lg-6">
+          <p class="welcomeTitle">Welcome</p>
+        </div>
+        <div class="col-4 col-lg-3 justify-content-end">
+          <button type="button" class="btn btn-dark signOutBtn" style="float: right;" onclick="signOut()">Sign out</button>
+        </div>
+      </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+      <!-- Cart title -->
+      <div class="row justify-content-center">
+        <div class="col-11 col-lg-9 mt-2 pt-2">
+          <p class="pageTitle">Cart</p>
+        </div>
+      </div>
+
+      <!-- Item rows -->
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6 col-lg-3">
+          <img src="static/imgs/stickerlandscape.png" alt="" width="80%">
+        </div>
+        <div class="col-6 col-lg-3">
+          <p class="item-title">Vinyl Sticker</p>
+          <p class="item-subtitle">High-quality vinyl sticker with a design mirroring that of the ACSI135 Mural that can be pasted on laptops, water bottles, notbooks and more.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="text-center">
+            <button type="button" class="btn minusBtn cart-numbers" data-item="0">-</button>
+            <button class="btn btn-disabled qtyText cart-numbers" data-item="0">0</button>
+            <button type="button" class="btn plusBtn cart-numbers" data-item="0">+</button>
+          </div>
+        </div>
+        <div class="col-6 col-lg-1 text-center">
+          <span class="cart-numbers subTotalText" data-item="0">$0</span>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6 col-lg-3">
+          <img src="static/imgs/pinslandscape.png" alt="" width="80%">
+        </div>
+        <div class="col-6 col-lg-3">
+          <p class="item-title">Enamel Pins</p>
+          <p class="item-subtitle">Sold in a set of 3 different designs and can be pinned onto pencil cases or bags</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="text-center">
+            <button type="button" class="btn minusBtn cart-numbers" data-item="1">-</button>
+            <button class="btn btn-disabled qtyText cart-numbers" data-item="1">0</button>
+            <button type="button" class="btn plusBtn cart-numbers" data-item="1">+</button>
+          </div>
+        </div>
+        <div class="col-6 col-lg-1 text-center">
+          <span class="cart-numbers subTotalText" data-item="1">$0</span>
+        </div>
+      </div>
+
+      <!-- Total row -->
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-lg-9">
+          <hr color="black" style="opacity: 1" size="5">
+        </div>
+        <div class="col-6 col-lg-8">
+          <span id="totalTitle">Total:</span>
+        </div>
+        <div class="col-6 col-lg-1 text-center">
+          <span class="cart-numbers" id="total">$0</span>
+        </div>
+      </div>
+
+      <!-- Next button -->
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <button type="button" class="btn p-2 btn-dark" id="nextToPayment"><i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment page -->
+  <div id="paymentPage" class="h-100" data-page="3">
+    <div class="container">
+
+      <!-- Welcome title and sign out button -->
+      <div class="row justify-content-center pt-2">
+        <div class="col-7 col-lg-6">
+          <p class="welcomeTitle">Welcome</p>
+        </div>
+        <div class="col-4 col-lg-3 justify-content-end">
+          <button type="button" class="btn btn-dark signOutBtn" style="float: right;" onclick="signOut()">Sign out</button>
+        </div>
+      </div>
+
+      <!-- Payment title -->
+      <div class="row justify-content-center">
+        <div class="col-11 col-lg-9 mt-2 pt-2">
+          <p class="pageTitle">Payment</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-11 col-lg-9">
+          <p id="paymentTotalText"></p>
+          <p id="paymentInstructions">
+            Payment via <strong>PAYNOW</strong> through the shown QR code or to reference number 321321321
+            <br>
+            <strong>
+            Please indicate:
+            <br>
+            1. 724ATT
+            <br>
+            2. Last 4 digits + last alphabetical letter of the child's NRIC/FIN number
+            <br>
+            3. Child's class
+            <br>
+            (e.g. 724ATT, 1234A, 1.01)
+            </strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Form and upload -->
+      <div class="row justify-content-center">
+        <div class="col-11 col-lg-9">
+          <form id="infoForm">
+            <div class="form-group row">
+              <label for="nameInput" class="col-7 col-lg-5">Name*</label>
+              <br>
+              <input type="text" id="nameInput" class="col-4">
+            </div>
+            <div class="form-group row">
+              <label for="classInput" class="col-7 col-lg-5">Class*</label>
+              <br>
+              <input type="number" step="0.01" id="classInput" class="col-4">
+            </div>
+            <div class="form-group row">
+              <label for="receiptUpload" class="col-7 col-lg-5">Screenshot of PAYNOW receipt*</label>
+              <br>
+              <input type="file" class="form-control-file col-4 px-0" id="receiptUpload">
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <p class="text-center"><br>
+                  Note: If the screenshot is invalid, your order will be voided</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Payment navigational buttons -->
+      <div class="row justify-content-center">
+        <div class="col-11 col-lg-9 text-center">
+          <button type="button" class="btn my-2 p-2 btn-dark" id="backToCart"><i class="fa fa-chevron-left"></i></button>
+          <button type="submit" form="infoForm" class="btn my-2 p-2 btn-dark" id="nextToThanks"><i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ending page -->
+  <div id="endPage" class="h-100" data-page="4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-5 text-center pt-5">
+          <img src="static/imgs/tick.png" alt="tick" width="30%">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <p id="thankYouText" class="text-center pt-5">Thank you!</p>
+        <p id="availableText" class="text-center">Your merchandise will be available for collection in 2 weeks.</p>
+        <br>
+        <p id="yourOrderText" class="text-center">Your order:</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-6 col-lg-4 text-center">
+          <img src="static/imgs/stickerlandscape.png" alt="stickers" width = "100%">
+        </div>
+        <div class="col-6 col-lg-4 text-center">
+          <img src="static/imgs/pinslandscape.png" alt="pins" width = "100%">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-6 col-lg-4 text-center"><p class="qtyText" data-item="0"></p></div>
+        <div class="col-6 col-lg-4 text-center"><p class="qtyText" data-item="1"></p></div>
+      </div>
+      <div class="row justify-content-center">
+        <p id="sincerelyText" class="text-center">Sincerely,<br>The Student Council</p>
+      </div>
+    </div>
+  </div>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  <!-- importing app scripts (load order is important) -->
+  <script type="text/javascript" src="static/js/auth/authConfig.js"></script>
+  <script type="text/javascript" src="static/js/auth/graphConfig.js"></script>
+  <script type="text/javascript" src="static/js/auth/ui.js"></script>
+
+  <script type="text/javascript" src="static/js/auth/authRedirect.js"></script>  
+  <script type="text/javascript" src="static/js/auth/graph.js"></script>
+
+  <script type="text/javascript" src="static/js/db.js"></script>
+  <script type="text/javascript" src="static/js/index.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,167 @@
+@font-face {
+  font-family: SFProDisplayRegular;
+  src: url(fonts/SFProDisplay-Regular.ttf);
+}
+@font-face {
+  font-family: SFProDisplayBold;
+  src: url(fonts/SFProDisplay-Bold.ttf);
+}
+@font-face {
+  font-family: SFProDisplayHeavy;
+  src: url(fonts/SFProDisplay-Heavy.ttf);
+}
+::-webkit-scrollbar { 
+  display: none;
+}
+*{
+  scroll-behavior: smooth;
+}
+body, html{
+  height: 100%;
+}
+body{
+  font-family: SFProDisplayBold;
+  overflow-x: hidden;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.btn:focus, .btn:active{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn-disabled:hover{
+  cursor: default;
+}
+#landing{
+  height: 100%;
+  background-color: white;
+}
+#cart{
+  height: 100%;
+  background-color: white;
+}
+#payment{
+  height: 100%;
+  background-color: pink;
+}
+#end{
+  height: 100%;
+  background-color: red;
+}
+
+
+
+#bannerTitle{
+  font-size: 2em;
+}
+.item-title{
+  font-size: 1.5em;
+}
+.item-subtitle{
+  font-family: SFProDisplayRegular;
+  font-size: 0.85em;
+}
+.welcomeTitle{
+  font-size: 1.5em;
+}
+.pageTitle{
+  font-size: 1.8em;
+}
+.welcomeTitle{
+  font-size: 1em;
+}
+.signOutBtn{
+  font-size: 0.7em;
+}
+#totalTitle{
+  font-size: 1.5em;
+}
+#paymentTotalText{
+  font-family: SFProDisplayBold;
+  font-size: 1.em;
+}
+#paymentInstructions{
+  font-family: SFProDisplayRegular;
+  font-size: 1.em;
+}
+.cart-numbers{
+  font-family: SFProDisplayRegular;
+  font-size: 1.3em;
+}
+.qtyText, .subTotalText, #total{
+  font-family: SFProDisplayBold;
+}
+#thankYouText{
+  font-size: 2em;
+}
+#availableText{
+  font-family: SFProDisplayRegular;
+  font-size: 1em;
+}
+#yourOrderText{
+  font-size: 1.25em;
+}
+#sincerelyText{
+  font-size: 1em;
+}
+form{
+  font-size: 0.9em;
+}
+.navBtn{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 6px 10px 5px 9px;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+}
+@media (min-width: 992px){
+  /* lg */
+  .welcomeTitle{
+    font-size: 1.5em;
+  }
+  #bannerTitle{
+    font-size: 2.5em;
+  }
+  #totalTitle{
+    font-size: 2.5em;
+  }
+  .signOutBtn{
+    font-size: 1em;
+  }
+  .cart-numbers{
+    font-size: 1.5em;
+  }
+  .item-title{
+    font-size: 2em;
+  }
+  .item-subtitle{
+    font-size: 1em;
+  }
+  .pageTitle{
+    font-size: 3.5em;
+  }
+  #paymentTotalText{
+    font-size: 1.2em;
+  }
+  #paymentInstructions{
+    font-size: 1.2em;
+  }
+  #thankYouText{
+    font-size: 3em;
+  }
+  #availableText{
+    font-size: 1.2em;
+  }
+  #yourOrderText{
+    font-size: 2em;
+  }
+  #sincerelyText{
+    font-size: 1.25em;
+  }
+}
+
