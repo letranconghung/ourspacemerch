@@ -12,6 +12,7 @@ function authUI(isLoggedIn){
 }
 
 function handleSignInData(account){
+    console.log("handleSignInData called");
     $(".welcomeTitle").each(function(){
         $(this).text(`${account.name}`);
     })

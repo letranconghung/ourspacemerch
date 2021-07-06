@@ -43,6 +43,7 @@ function selectAccount () {
 function handleResponse(response) {
     console.log("handleResponse called");
     if (response !== null) {
+        username = response.account.username;
         console.log("not null response. an account is logged in");
         handleSignInData(response.account);
         authUI(true);
@@ -83,8 +84,9 @@ function getTokenRedirect(request) {
      * See here for more info on account retrieval: 
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
+    console.log("request:", request);
     request.account = myMSALObj.getAccountByUsername(username);
-
+    console.log("request:", request);
     return myMSALObj.acquireTokenSilent(request)
         .catch(error => {
             console.warn("silent token acquisition fails. acquiring token using redirect");
