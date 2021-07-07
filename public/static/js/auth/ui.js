@@ -15,7 +15,7 @@ function handleSignInData(account){
     console.log("handleSignInData called");
     $(".welcomeTitle").each(function(){
         $(this).text(`${account.name}`);
-    })
+    });
     fullName = account.name;
     seeProfile();
 }

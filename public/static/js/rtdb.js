@@ -1,4 +1,4 @@
-var db = firebase.database();
+// var db = firebase.database();
 function sendOrder(date, qty, total, inputName, inputClass){
   var dateString = date.toLocaleString('en-GB', {
     day: 'numeric',

@@ -2,6 +2,7 @@ qty = [0, 0];
 price = [2, 10];
 total = 0;
 function display(){
+  console.log("display called");
   $(".qtyText").each(function(){
     itemNo = parseInt($(this).attr("data-item"));
     $(this).text(qty[itemNo]);

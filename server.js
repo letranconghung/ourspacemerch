@@ -1,6 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const fs = require('fs');
+const mime = require('mime');
+const request = require('request');
 
 const DEFAULT_PORT = process.env.PORT || 3000;
 

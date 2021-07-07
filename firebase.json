@@ -11,6 +11,6 @@
     "rules": "storage.rules"
   },
   "database": {
-    "rules": "Y"
+    "rules": "database.rules.json"
   }
 }
