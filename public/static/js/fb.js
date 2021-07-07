@@ -3,9 +3,9 @@
   var provider = new firebase.auth.OAuthProvider('microsoft.com');
   provider.setCustomParameters({
     // Force re-consent.
-    prompt: 'consent',
+    // prompt: 'consent',
     // Target specific email with login hint.
-    login_hint: 'username@acsians.acsi.edu.sg',
+    // login_hint: 'username@acsians.acsi.edu.sg',
     tenant: '3b2f12de-4d54-490b-908f-dc26b91244dc'
   });
 
