@@ -1,6 +1,8 @@
 {
   "rules": {
-    ".read": false,
-    ".write": "!data.exists()"
+    "$uid":{
+      ".read": "$uid === auth.uid",
+      ".write": "$uid === auth.uid"
+    }
   }
 }

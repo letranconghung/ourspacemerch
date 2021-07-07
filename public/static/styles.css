@@ -51,9 +51,6 @@ body{
   height: 100%;
   background-color: red;
 }
-
-
-
 #bannerTitle{
   font-size: 2em;
 }
@@ -73,7 +70,7 @@ body{
 .welcomeTitle{
   font-size: 1em;
 }
-.signOutBtn{
+.signOutBtn, #viewOrdersBtn{
   font-size: 0.7em;
 }
 #totalTitle{
@@ -106,6 +103,9 @@ body{
 #sincerelyText{
   font-size: 1em;
 }
+#yourOrdersTitle{
+  font-size: 2em;
+}
 form{
   font-size: 0.9em;
 }
@@ -129,7 +129,7 @@ form{
   #totalTitle{
     font-size: 2.5em;
   }
-  .signOutBtn{
+  .signOutBtn, #viewOrdersBtn{
     font-size: 1em;
   }
   .cart-numbers{

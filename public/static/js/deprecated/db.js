@@ -21,13 +21,4 @@ function upload(file, total, qty, inputName, inputClass){
     }
   };
   xhr.send(file);
-  
-  // xhr.onreadystatechange = function(){
-  //   if(xhr.readyState == XMLHttpRequest.DONE){
-  //     console.log(xhr.response);
-  //   }
-  // }
-  // xhr.open("GET", "https://graph.microsoft.com/v1.0/me/drive/sharedWithMe", true);
-  // xhr.setRequestHeader('Authorization', bt);
-  // xhr.send();
 }
