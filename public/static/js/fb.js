@@ -132,7 +132,7 @@
     total = 0;
     // $("#nameInput").val("");
     // $("#classInput").val("");
-    $("infoForm").reset();
+    $("#infoForm").trigger("reset");
   }
   // update, calculate and display
   function display(){
@@ -223,7 +223,7 @@
     var db = firebase.database();
     var dateString = date.toLocaleString('en-GB', {
       day: 'numeric',
-      month: 'long', 
+      month: 'long',  
       year: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
@@ -236,7 +236,7 @@
       qty: qty,
       inputname: inputName,
       inputclass: inputClass,
-      datestring: dateString,
+      datestring: dateString
     }
     console.log("order:", order);
     var updates = {};
